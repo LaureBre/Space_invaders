@@ -13,24 +13,24 @@ var Entite = function(dom) {
       this.dom = dom;
       this.alive = true;
       this.hit = false;
-      this.nbLife = 1;
       this.speed = 1
-      this.hurt = function(){
-        this.nbLife--;
-        function() {
-          this.dom.class = "icon-explode"
-        }
-        if (this.nbLife == 0) {
-          this.alive = false;
-          this.dead = function(){
-            setTimeout(mafonction, 1500);
-
-          }
-        };
-        return (this.nbLife);
-      }
-
     };
+
+Entite.prototype.nbLife = 1;
+
+Entite.prototype.hurt = function(){
+  this.nbLife--;
+  function() {
+    this.dom.class = "icon-explode"
+  }
+  if (this.nbLife == 0) {
+    this.alive = false;
+    this.dead = setTimeout(function(){
+      this.dom.class = 'dead';
+    }, 1500);
+  };
+  return (this.nbLife);
+}
 
 ///// Nos objets
 
@@ -43,6 +43,21 @@ var ennemis = new Entite {
 var player = new Entite {
       posX: 50
     };
+
 ///////////////////////// FONCTIONS /////////////////////////
 
-Entite.prototype
+// Déplacement JOUEUR droite-gauche
+
+
+// Déplacement ENNEMIS droite-gauche
+
+
+// Déplacement ENNEMIS vers bas
+
+
+// Déplacement MUNITIONS vers le haut ou bas
+
+
+// Déclenchement MUNITIONS
+
+// Point de départ MUNITIONS
