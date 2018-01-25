@@ -13,10 +13,18 @@ body
     overflow: hidden;
 }
 
+#conteneur
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 720px;
+}
+
 #entete
 {
     background-color: pink;
-    height:5vh;
+    height: 40px;
     width: 1280px;
     display: flex;
     justify-content: space-between;
@@ -25,11 +33,10 @@ body
 #conteneurEnnemis
 {
     border: 1px solid red;
-
     width: 1280px;
     height: 35%;
     position: absolute;
-    top: 5vh;
+    top: 40px;
 }
 
 #boiteEnnemis
@@ -44,7 +51,6 @@ body
 .col_ennemis
 {
     background-color:grey;
-  /*  width: ; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -53,19 +59,21 @@ body
 
 #conteneurTirs
 {
-    /* width: 100vw; */
-    height: 90%;
+    height: 600px;
     width: 1280px;
-    position: absolute;
-    bottom: 0;
     border: 3px solid yellow;
+    display: flex;
 }
 
 .col_tir
 {
     width: 5%;
-    height: 100%;
+    height: 95%;
     margin: 1%;
+    border: 2px solid white;
+    color: white;
+    font-size: 2em;
+    text-align: center;
 }
 
 .case span
@@ -76,6 +84,13 @@ body
 
 #barre_joueur
 {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+
+    width: 1280px;
+    background: blue;
+}
+
+#barre_joueur case
+{
+    margin-left: 400px;
 }
