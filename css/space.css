@@ -2,95 +2,117 @@
 {
     margin: 0;
     padding: 0;
+    color: white;
+    font-size: 18px;
 }
 
 body
 {
-    height: 800px;
+    /* height: 680px; */
+    /* pas besoin de fixer la hauteur en fait, le scroll est désactivé */
     width: 1280px;
     background-color: black;
     margin: auto;
     overflow: hidden;
-}
-
-#conteneur
-{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 720px;
+    display: flex;
+    flex-direction: column;
 }
 
 #entete
 {
-    background-color: pink;
-    height: 40px;
-    width: 1280px;
+    background-image: linear-gradient(rgba(105, 86, 240, 0.57), rgb(85, 85, 85));
+    height: 60px;
+    width: 1240px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#vies, #niveau
+{
+  flex: 1;
+}
+
+#score
+{
+  flex: 4;
+  text-align: center;
 }
 
 #conteneurEnnemis
 {
-    border: 1px solid red;
-    width: 1280px;
-    height: 35%;
+    /* border: 1px solid red; */
+    /* Pour bloquer son contenu sous l'en-tête */
     position: absolute;
-    top: 40px;
+    top: 60px;
 }
 
+/* Bouge de droite à gauche dans son conteneur */
+/* Et descend peu à peu (hors de son conteneur d'ailleurs..) */
 #boiteEnnemis
 {
-    border: 1px solid green;
-    width: 60%;
-    height: 100%;
+    /* border: 1px solid green; */
+    /* Boîte plus petite que son conteneur pour naviguer dedans */
+    width: 945px;
+    /* Pour une bonne répartition des colonnes d'ennemis */
     display: flex;
     justify-content: space-between;
 }
 
 .col_ennemis
 {
-    background-color:grey;
-    height: 100%;
+    margin: 0 10px;
+    /* Pour une bonne répartition des bestioles dedans */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* Taille et couleur des belligérants */
+span
+{
+    color: white;
+    font-size: 45px;
+}
+
 #conteneurTirs
 {
-    height: 600px;
-    width: 1280px;
-    border: 3px solid yellow;
+    /* Marge en haut de la hauteur d'une bestiole */
+    margin-top: 60px;
+    /* border: 1px solid yellow; */
+    /* Pour des colonnes bien réparties */
     display: flex;
 }
 
 .col_tir
 {
-    width: 5%;
-    height: 95%;
-    margin: 1%;
-    border: 2px solid white;
+    width: 60px;
+    height: 550px;
+    margin: 0 10px;
+    /* border: 2px solid white; */
     color: white;
-    font-size: 2em;
-    text-align: center;
+    font-size: 20px;
 }
 
-.case span
+.bullet
 {
-    color: white;
-    font-size: 3vw;
+    width: 3px;
+    height: 10px;
+    background: white;
+    border-radius: 0 10px;
+    margin-left: 25px;
 }
 
 #barre_joueur
 {
     position: relative;
-
     width: 1280px;
-    background: blue;
+    border: 1px solid blue;
 }
 
 #barre_joueur case
 {
-    margin-left: 400px;
+    position: absolute;
+    left: 1000px;
 }
