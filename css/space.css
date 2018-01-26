@@ -79,7 +79,7 @@ span
 #conteneurTirs
 {
     /* Marge en haut de la hauteur d'une bestiole */
-    margin-top: 60px;
+    margin-top: 40px;
     /* border: 1px solid yellow; */
     /* Pour des colonnes bien réparties */
     display: flex;
@@ -93,10 +93,12 @@ span
     /* border: 2px solid white; */
     color: white;
     font-size: 20px;
+    position: relative;
 }
 
 .bullet
 {
+    position: absolute;
     width: 3px;
     height: 10px;
     background: white;
@@ -111,8 +113,8 @@ span
     border: 1px solid blue;
 }
 
-#barre_joueur case
+#player
 {
     position: absolute;
-    left: 1000px;
+    left: 620px;
 }
