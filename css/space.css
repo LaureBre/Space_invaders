@@ -68,12 +68,21 @@ body
 .col_tir
 {
     width: 5%;
-    height: 95%;
-    margin: 1%;
+    height: 550px;
+    margin: 50px 10px 0 10px;
     border: 2px solid white;
     color: white;
     font-size: 2em;
-    text-align: center;
+    position: relative;
+}
+
+.bullet
+{
+  position: absolute;
+  width: 3px;
+  height: 8px;
+  background: white;
+  left: 26px;
 }
 
 .case span

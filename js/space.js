@@ -3,8 +3,20 @@
 var decompte = 0;
 var domBoiteEnnemis = document.getElementById('boiteEnnemis');
 var domColTir = document.getElementsByClassName('col_tir');
+var munition = document.getElementsByClassName('bullet');
 
-var posXennemis = 0;
+// Mise en PAUSE
+var stop = document.addEventListener('keydown', function(e) {
+
+  if ((e.keyCode == 27) || (e.keyCode == 80) || (e.keyCode == 81)) { // escape key maps to keycode `27`, P 80, Q 81
+    window.clearTimeout(moveEn);
+    return true;
+  }
+  else {
+    return false;
+  }
+});
+
 //////////////////// Déclaration des OBJETS ///////////////////////
 
 
@@ -51,46 +63,59 @@ var posXennemis = 0;
 
 
 // Déplacement ENNEMIS droite-gauche
+// function moveEnnemis() {
+//   if (posXennemis < 500) {
+//     posXennemis += 10;
+//     domBoiteEnnemis.style.marginLeft = posXennemis + "px";
+//   };
+// }
+//
+// var moveEn = window.setInterval(moveEnnemis, 200);
+var direction = 1;
+var posXennemis = 0;
+
 function moveEnnemis() {
-  if (posXennemis < 500) {
-    posXennemis += 10;
-    domBoiteEnnemis.style.marginLeft = posXennemis + "px";
+  if (((direction == 1) && (posXennemis < 500)) ||
+     ((direction == -1) && (posXennemis > 0))) {
+    posXennemis += 10 * direction;
+  }
+  else {
+    direction = -direction;
   };
+  domBoiteEnnemis.style.marginLeft = posXennemis + "px";
 }
 
-// setInterval(function() {
-//   domBoiteEnnemis.style.marginLeft += "10px";
-//   console.log(domBoiteEnnemis.style.marginLeft);
-// }, 500);
-
-var moveEn = window.setInterval(moveEnnemis, 500);
+var moveEn = window.setInterval(moveEnnemis(), 200);
 // Déplacement ENNEMIS vers bas
-var i=0;
+var n=0;
 
-function tire(n) {
-  domColTir[n].innerHTML = "!";
+//
+
+function tire(i) {
+  domColTir[i].innerHTML = "!";
 }
 
-function moveMun(n) {
-  domColTir[n-1].style.paddingTop = n-1 + "%";
+function moveMun(i) {
+  munition[i].offsetTop = i + "%";
+  console.log(munition[i].offsetTop);
 }
 // Déplacement MUNITIONS vers le haut ou bas
 
-for (var n = 0; n < domColTir.length; n++) {
-  setInterval("tire("+ n + ")", n*1000 + 2000);
-  setInterval("moveMun(" + (n+1), n*1000 + 2000);
-}
+while (n <= domColTir.length) {
+  if ((n < domColTir.length) && (!stop)) {
+    setInterval("tire("+ n + ")", n*1000 + 2000);
+    setInterval("moveMun(" + n + ")", n*1000 + 2000);
+    n++;
+  }
+  // else if (n = domColTir.length) {
+  //   n = 0;
+  // }
+  else {
+    break;
+  };
+};
 
 // Point de départ MUNITIONS
-
-// Mise en PAUSE
-document.addEventListener('keydown', function(e) {
-
-      if ((e.keyCode == 27) || (e.keyCode == 80) || (e.keyCode == 81)) { // escape key maps to keycode `27`
-         window.clearTimeout(moveEn);
-        }
-
-    });
 
 // $(document).keydown(function(e) {
 //      if ((e.keyCode == 27) || (e.keyCode == 80) || (e.keyCode == 81)) { // escape key maps to keycode `27`
