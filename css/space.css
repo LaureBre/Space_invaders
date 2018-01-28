@@ -90,7 +90,7 @@ span
     width: 60px;
     height: 550px;
     margin: 0 10px;
-    /* border: 2px solid white; */
+    /* border: 1px solid white; */
     color: white;
     font-size: 20px;
     position: relative;
@@ -103,13 +103,14 @@ span
     height: 10px;
     background: white;
     border-radius: 0 10px;
-    margin-left: 25px;
+    margin-left: 28px;
 }
 
 #barre_joueur
 {
     position: relative;
     width: 1280px;
+    height: 54px;
     border: 1px solid blue;
 }
 

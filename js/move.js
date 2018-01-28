@@ -119,12 +119,13 @@ var domPlayer = document.getElementById('player');
 var posPlayer = 620;
 
 document.addEventListener('keydown', function(e) {
-  if ((e.keyCode == 37) && (posPlayer > 0))
+  // Si flèche gauche <-, pas au bord et pas en pause
+  if ((e.keyCode == 37) && (posPlayer > 0) && !pause)
   {
     posPlayer -= 10;
   }
-  // Appuie sur touche -> et n'a pas atteint le bord (on retranche la largeur de l'icône : 39px)
-  else if ((e.keyCode == 39) && (posPlayer < 1240))
+  // Appuie sur touche -> , pas en pause et pas au bord droit (on retranche la largeur de l'icône : 39px)
+  else if ((e.keyCode == 39) && (posPlayer < 1240) && !pause)
   {
     posPlayer += 10;
   }
