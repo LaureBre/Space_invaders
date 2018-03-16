@@ -1,4 +1,4 @@
-Context : Aformac training for professionnal title Software developper
+Context : Aformac training for professional title Software developper
 
 Goal : create a space invaders without using canvas
 
